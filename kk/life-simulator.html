@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Life Simulator - Explore financial what-if scenarios">
+    <title>Life Simulator - EmpowerSave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                💰 EmpowerSave
+            </a>
+            <button class="navbar-toggle" id="navbarToggle">☰</button>
+            <ul class="navbar-nav" id="navbarNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="ai-advisor.html">AI Advisor</a></li>
+                <li><a href="life-simulator.html" class="active">Life Simulator</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section"
+        style="padding-top: 2rem; padding-bottom: 1rem; background: linear-gradient(135deg, var(--color-accent-lighter) 0%, var(--color-white) 100%);">
+        <div class="container">
+            <h1>Life Simulator</h1>
+            <p style="color: var(--color-gray-700); max-width: 800px;">Explore "what-if" scenarios and see how different
+                financial decisions impact your future. Make informed choices with confidence!</p>
+        </div>
+    </section>
+
+    <!-- Simulator Interface -->
+    <section style="padding: 2rem 0;">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Input Panel -->
+                <div>
+                    <div class="card">
+                        <h2 style="margin-bottom: 1.5rem;">Scenario Settings</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Current Monthly Income</label>
+                            <input type="number" class="form-input" id="monthlyIncome" value="3500"
+                                placeholder="e.g., 3500">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Current Monthly Expenses</label>
+                            <input type="number" class="form-input" id="monthlyExpenses" value="2150"
+                                placeholder="e.g., 2150">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Current Savings</label>
+                            <input type="number" class="form-input" id="currentSavings" value="1350"
+                                placeholder="e.g., 1350">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Monthly Savings Goal</label>
+                            <input type="number" class="form-input" id="savingsGoal" value="500"
+                                placeholder="e.g., 500">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Expected Annual Return (%)</label>
+                            <input type="number" class="form-input" id="returnRate" value="7" placeholder="e.g., 7"
+                                step="0.1">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Time Period (Years)</label>
+                            <input type="number" class="form-input" id="timePeriod" value="5" placeholder="e.g., 5"
+                                min="1" max="30">
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;" onclick="runSimulation()">
+                            🔮 Run Simulation
+                        </button>
+                    </div>
+
+                    <!-- Scenario Templates -->
+                    <div class="card" style="margin-top: 1.5rem;">
+                        <h3 style="margin-bottom: 1rem;">Quick Scenarios</h3>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <button class="btn btn-outline" style="justify-content: flex-start;"
+                                onclick="loadScenario('reduce-expenses')">
+                                📉 Reduce expenses by 20%
+                            </button>
+                            <button class="btn btn-outline" style="justify-content: flex-start;"
+                                onclick="loadScenario('increase-income')">
+                                📈 Get a 15% raise
+                            </button>
+                            <button class="btn btn-outline" style="justify-content: flex-start;"
+                                onclick="loadScenario('aggressive-saving')">
+                                💪 Aggressive savings plan
+                            </button>
+                            <button class="btn btn-outline" style="justify-content: flex-start;"
+                                onclick="loadScenario('investment-focus')">
+                                📊 Focus on investments
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div>
+                    <div class="card">
+                        <h2 style="margin-bottom: 1.5rem;">Projection Results</h2>
+                        <div id="simulationResults">
+                            <div style="text-align: center; padding: 3rem 1rem; color: var(--color-gray-500);">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">🔮</div>
+                                <p>Configure your scenario and run simulation to see projections</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Card -->
+                    <div class="card" id="comparisonCard" style="margin-top: 1.5rem; display: none;">
+                        <h3 style="margin-bottom: 1rem;">💡 AI Insights</h3>
+                        <div id="aiInsights"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenario Examples -->
+    <section style="padding: 2rem 0; background: var(--color-white);">
+        <div class="container">
+            <h2 class="section-title">Sample Scenarios to Explore</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🎓</span> Pursuing Higher Education
+                    </h3>
+                    <p style="font-size: var(--font-size-sm);">See how continuing education affects your finances with
+                        student loans vs. scholarships.</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💼</span> Career Change
+                    </h3>
+                    <p style="font-size: var(--font-size-sm);">Explore the financial impact of switching careers or
+                        starting a business.</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🏠</span> Major Purchase
+                    </h3>
+                    <p style="font-size: var(--font-size-sm);">Simulate buying a car or home and see long-term financial
+                        effects.</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💍</span> Life Events
+                    </h3>
+                    <p style="font-size: var(--font-size-sm);">Plan for weddings, travel, or other significant life
+                        moments.</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📈</span> Investment Strategies
+                    </h3>
+                    <p style="font-size: var(--font-size-sm);">Compare conservative vs. aggressive investment
+                        approaches.</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💪</span> Debt Payoff
+                    </h3>
+                    <p style="font-size: var(--font-size-sm);">Strategize paying off student loans or credit card debt
+                        faster.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>💰 EmpowerSave</h4>
+                    <p>AI-powered financial companion for women and students.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="ai-advisor.html">AI Advisor</a></li>
+                        <li><a href="life-simulator.html">Life Simulator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="reports.html">Reports</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerSave. All rights reserved. Built with 💙 for financial empowerment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function runSimulation() {
+            const income = parseFloat(document.getElementById('monthlyIncome').value) || 0;
+            const expenses = parseFloat(document.getElementById('monthlyExpenses').value) || 0;
+            const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+            const savingsGoal = parseFloat(document.getElementById('savingsGoal').value) || 0;
+            const returnRate = (parseFloat(document.getElementById('returnRate').value) || 0) / 100;
+            const years = parseInt(document.getElementById('timePeriod').value) || 5;
+
+            const monthlySavings = income - expenses;
+            const months = years * 12;
+
+            // Calculate future value with compound interest
+            let futureValue = currentSavings;
+            const monthlyRate = returnRate / 12;
+
+            for (let i = 0; i < months; i++) {
+                futureValue = futureValue * (1 + monthlyRate) + monthlySavings;
+            }
+
+            const totalContributions = currentSavings + (monthlySavings * months);
+            const investmentGains = futureValue - totalContributions;
+
+            // Display results
+            const resultsHTML = `
+                <div style="margin-bottom: 2rem;">
+                    <div class="stat-card" style="margin-bottom: 1rem;">
+                        <div class="stat-label">Projected Total Savings</div>
+                        <div class="stat-value" style="color: var(--color-secondary);">$${futureValue.toFixed(2).toLocaleString()}</div>
+                        <p style="margin-top: 0.5rem; font-size: var(--font-size-sm); color: var(--color-gray-600);">After ${years} years</p>
+                    </div>
+
+                    <div class="stat-card" style="margin-bottom: 1rem;">
+                        <div class="stat-label">Total Contributions</div>
+                        <div class="stat-value" style="color: var(--color-primary);">$${totalContributions.toFixed(2).toLocaleString()}</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">Investment Gains</div>
+                        <div class="stat-value" style="color: var(--color-accent);">$${investmentGains.toFixed(2).toLocaleString()}</div>
+                        <p style="margin-top: 0.5rem; font-size: var(--font-size-sm); color: var(--color-gray-600);">From ${(returnRate * 100).toFixed(1)}% annual return</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--color-gray-100); padding: 1rem; border-radius: var(--radius-lg);">
+                    <h4 style="margin-bottom: 0.75rem; font-size: var(--font-size-base);">Monthly Breakdown</h4>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: var(--color-gray-600);">Income:</span>
+                        <span style="font-weight: 600;">$${income.toFixed(2)}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: var(--color-gray-600);">Expenses:</span>
+                        <span style="font-weight: 600;">$${expenses.toFixed(2)}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 2px solid var(--color-gray-300);">
+                        <span style="color: var(--color-gray-700); font-weight: 600;">Net Savings:</span>
+                        <span style="font-weight: 700; color: var(--color-secondary);">$${monthlySavings.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('simulationResults').innerHTML = resultsHTML;
+
+            // Show AI insights
+            const savingsRate = (monthlySavings / income) * 100;
+            let insights = '';
+
+            if (savingsRate < 10) {
+                insights = `<p>⚠️ Your current savings rate is ${savingsRate.toFixed(1)}%, which is below the recommended 20%. Consider reducing expenses or increasing income to improve your financial future.</p>`;
+            } else if (savingsRate < 20) {
+                insights = `<p>👍 You're saving ${savingsRate.toFixed(1)}% of your income. Try to reach the 20% benchmark for better financial security.</p>`;
+            } else {
+                insights = `<p>🎉 Excellent! You're saving ${savingsRate.toFixed(1)}% of your income, which is above the recommended 20%. Keep up the great work!</p>`;
+            }
+
+            if (investmentGains > totalContributions * 0.5) {
+                insights += `<p>📈 The power of compound interest is working for you! Your investment gains (${investmentGains.toFixed(0)}) represent a significant portion of your wealth.</p>`;
+            }
+
+            document.getElementById('aiInsights').innerHTML = insights;
+            document.getElementById('comparisonCard').style.display = 'block';
+        }
+
+        function loadScenario(scenario) {
+            const currentIncome = parseFloat(document.getElementById('monthlyIncome').value) || 3500;
+            const currentExpenses = parseFloat(document.getElementById('monthlyExpenses').value) || 2150;
+
+            switch (scenario) {
+                case 'reduce-expenses':
+                    document.getElementById('monthlyExpenses').value = (currentExpenses * 0.8).toFixed(0);
+                    break;
+                case 'increase-income':
+                    document.getElementById('monthlyIncome').value = (currentIncome * 1.15).toFixed(0);
+                    break;
+                case 'aggressive-saving':
+                    document.getElementById('monthlyExpenses').value = (currentExpenses * 0.7).toFixed(0);
+                    document.getElementById('savingsGoal').value = 1000;
+                    break;
+                case 'investment-focus':
+                    document.getElementById('returnRate').value = 10;
+                    document.getElementById('timePeriod').value = 10;
+                    break;
+            }
+            runSimulation();
+        }
+    </script>
+</body>
+
+</html>

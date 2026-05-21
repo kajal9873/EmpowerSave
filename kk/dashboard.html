@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Financial Dashboard - Track your income, expenses, and savings">
+    <title>Dashboard - EmpowerSave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                💰 EmpowerSave
+            </a>
+            <button class="navbar-toggle" id="navbarToggle">☰</button>
+            <ul class="navbar-nav" id="navbarNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="ai-advisor.html">AI Advisor</a></li>
+                <li><a href="life-simulator.html">Life Simulator</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="section" style="padding-top: 2rem; padding-bottom: 1rem;">
+        <div class="container">
+            <h1>Financial Dashboard</h1>
+            <p style="color: var(--color-gray-600);">Welcome back! Here's your financial overview for this month.</p>
+        </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <section style="padding: 1rem 0 2rem;">
+        <div class="container">
+            <div class="grid grid-3">
+                <div class="stat-card" style="border-left-color: var(--color-primary);">
+                    <div class="stat-label">Total Income</div>
+                    <div class="stat-value" id="totalIncome">$3,500</div>
+                    <div class="stat-change positive">
+                        <span>↑ 12%</span>
+                        <span style="color: var(--color-gray-600);">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card" style="border-left-color: var(--color-accent);">
+                    <div class="stat-label">Total Expenses</div>
+                    <div class="stat-value" style="color: var(--color-accent);" id="totalExpenses">$2,150</div>
+                    <div class="stat-change negative">
+                        <span style="color: var(--color-accent);">↑ 5%</span>
+                        <span style="color: var(--color-gray-600);">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card" style="border-left-color: var(--color-secondary);">
+                    <div class="stat-label">Total Savings</div>
+                    <div class="stat-value" style="color: var(--color-secondary);" id="totalSavings">$1,350</div>
+                    <div class="stat-change positive">
+                        <span>↑ 23%</span>
+                        <span style="color: var(--color-gray-600);">vs last month</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Goals -->
+    <section style="padding: 2rem 0;">
+        <div class="container">
+            <h2 class="mb-3">Financial Goals</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💼</span> Emergency Fund
+                    </h3>
+                    <div class="progress-label">
+                        <span>$2,500 of $5,000</span>
+                        <span style="font-weight: 600; color: var(--color-primary);">50%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 50%;"></div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: var(--font-size-sm); color: var(--color-gray-600);">
+                        Target: December 2026
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🎓</span> Education Fund
+                    </h3>
+                    <div class="progress-label">
+                        <span>$800 of $3,000</span>
+                        <span style="font-weight: 600; color: var(--color-primary);">27%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 27%;"></div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: var(--font-size-sm); color: var(--color-gray-600);">
+                        Target: June 2027
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>✈️</span> Travel Fund
+                    </h3>
+                    <div class="progress-label">
+                        <span>$450 of $2,000</span>
+                        <span style="font-weight: 600; color: var(--color-primary);">23%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 23%;"></div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: var(--font-size-sm); color: var(--color-gray-600);">
+                        Target: August 2026
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📈</span> Investment Portfolio
+                    </h3>
+                    <div class="progress-label">
+                        <span>$1,200 of $10,000</span>
+                        <span style="font-weight: 600; color: var(--color-primary);">12%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 12%;"></div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: var(--font-size-sm); color: var(--color-gray-600);">
+                        Target: December 2028
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Transactions -->
+    <section style="padding: 2rem 0;">
+        <div class="container">
+            <h2 class="mb-3">Recent Transactions</h2>
+            <div class="card">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--color-gray-300);">
+                                <th style="padding: 1rem; text-align: left; color: var(--color-gray-700);">Date</th>
+                                <th style="padding: 1rem; text-align: left; color: var(--color-gray-700);">Description
+                                </th>
+                                <th style="padding: 1rem; text-align: left; color: var(--color-gray-700);">Category</th>
+                                <th style="padding: 1rem; text-align: right; color: var(--color-gray-700);">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsList">
+                            <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                <td style="padding: 1rem;">Jan 28, 2026</td>
+                                <td style="padding: 1rem; font-weight: 500;">Monthly Salary</td>
+                                <td style="padding: 1rem;">
+                                    <span class="badge badge-success">Income</span>
+                                </td>
+                                <td
+                                    style="padding: 1rem; text-align: right; color: var(--color-success); font-weight: 600;">
+                                    +$3,500
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                <td style="padding: 1rem;">Jan 26, 2026</td>
+                                <td style="padding: 1rem; font-weight: 500;">Grocery Shopping</td>
+                                <td style="padding: 1rem;">
+                                    <span class="badge badge-warning">Expenses</span>
+                                </td>
+                                <td
+                                    style="padding: 1rem; text-align: right; color: var(--color-accent); font-weight: 600;">
+                                    -$120
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                <td style="padding: 1rem;">Jan 25, 2026</td>
+                                <td style="padding: 1rem; font-weight: 500;">Course Enrollment</td>
+                                <td style="padding: 1rem;">
+                                    <span class="badge badge-primary">Education</span>
+                                </td>
+                                <td
+                                    style="padding: 1rem; text-align: right; color: var(--color-accent); font-weight: 600;">
+                                    -$450
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                <td style="padding: 1rem;">Jan 23, 2026</td>
+                                <td style="padding: 1rem; font-weight: 500;">Investment Contribution</td>
+                                <td style="padding: 1rem;">
+                                    <span class="badge badge-primary">Savings</span>
+                                </td>
+                                <td
+                                    style="padding: 1rem; text-align: right; color: var(--color-accent); font-weight: 600;">
+                                    -$500
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem;">Jan 20, 2026</td>
+                                <td style="padding: 1rem; font-weight: 500;">Freelance Project</td>
+                                <td style="padding: 1rem;">
+                                    <span class="badge badge-success">Income</span>
+                                </td>
+                                <td
+                                    style="padding: 1rem; text-align: right; color: var(--color-success); font-weight: 600;">
+                                    +$800
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Insights -->
+    <section style="padding: 2rem 0;">
+        <div class="container">
+            <h2 class="mb-3">AI-Powered Insights</h2>
+            <div class="grid grid-2">
+                <div class="card"
+                    style="background: linear-gradient(135deg, var(--color-primary-lighter) 0%, var(--color-white) 100%);">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💡</span> Smart Tip
+                    </h3>
+                    <p>You're spending 15% more on dining out this month. Consider meal prepping to save $200/month and
+                        reach your travel goal faster!</p>
+                    <a href="ai-advisor.html" class="btn btn-primary" style="margin-top: 1rem;">Get More Advice</a>
+                </div>
+
+                <div class="card"
+                    style="background: linear-gradient(135deg, var(--color-secondary-lighter) 0%, var(--color-white) 100%);">
+                    <h3 style="font-size: var(--font-size-lg); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🎯</span> Goal Alert
+                    </h3>
+                    <p>Great progress! You're on track to complete your Emergency Fund goal 2 months early. Consider
+                        increasing your investment contributions.</p>
+                    <a href="life-simulator.html" class="btn btn-secondary" style="margin-top: 1rem;">Simulate
+                        Scenarios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>💰 EmpowerSave</h4>
+                    <p>AI-powered financial companion for women and students.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="ai-advisor.html">AI Advisor</a></li>
+                        <li><a href="life-simulator.html">Life Simulator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="reports.html">Reports</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerSave. All rights reserved. Built with 💙 for financial empowerment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

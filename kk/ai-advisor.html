@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Advisor - Get personalized financial guidance">
+    <title>AI Advisor - EmpowerSave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                💰 EmpowerSave
+            </a>
+            <button class="navbar-toggle" id="navbarToggle">☰</button>
+            <ul class="navbar-nav" id="navbarNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="ai-advisor.html" class="active">AI Advisor</a></li>
+                <li><a href="life-simulator.html">Life Simulator</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 2rem; padding-bottom: 1rem;">
+        <div class="container">
+            <h1>AI Financial Advisor</h1>
+            <p style="color: var(--color-gray-600);">Ask me anything about budgeting, saving, investing, or financial
+                planning. I'm here to help!</p>
+        </div>
+    </section>
+
+    <!-- AI Chat Interface -->
+    <section style="padding: 1rem 0 3rem;">
+        <div class="container">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div
+                        style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                        🤖
+                    </div>
+                    <div>
+                        <h3 style="color: white; margin: 0;">AI Financial Advisor</h3>
+                        <p style="margin: 0; font-size: 0.875rem; opacity: 0.9;">Powered by Agentic AI & RAG</p>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message ai">
+                        <div class="chat-avatar">AI</div>
+                        <div class="chat-bubble">
+                            <p style="margin: 0;"><strong>Welcome to your AI Financial Advisor!</strong></p>
+                            <p style="margin: 0.5rem 0 0;">I can help you with:</p>
+                            <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+                                <li>Budgeting strategies</li>
+                                <li>Savings tips and goals</li>
+                                <li>Investment advice for beginners</li>
+                                <li>Scholarship and grant opportunities</li>
+                                <li>Student loan management</li>
+                                <li>Emergency fund planning</li>
+                            </ul>
+                            <p style="margin: 0.5rem 0 0;">What would you like to know?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chatInput"
+                        placeholder="Ask about budgeting, saving, investing..." autocomplete="off">
+                    <button class="btn btn-primary" id="sendBtn">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suggested Questions -->
+    <section style="padding: 0 0 3rem;">
+        <div class="container">
+            <h2 class="mb-3">Popular Questions</h2>
+            <div class="grid grid-3">
+                <div class="card" style="cursor: pointer; transition: all 0.2s;"
+                    onclick="askQuestion('How should I split my income between savings and expenses?')">
+                    <h3
+                        style="font-size: var(--font-size-base); color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💰</span> Budgeting Strategy
+                    </h3>
+                    <p style="margin: 0; font-size: var(--font-size-sm);">How should I split my income?</p>
+                </div>
+
+                <div class="card" style="cursor: pointer; transition: all 0.2s;"
+                    onclick="askQuestion('What are the best investment options for students with small amounts?')">
+                    <h3
+                        style="font-size: var(--font-size-base); color: var(--color-secondary); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📈</span> Investment Tips
+                    </h3>
+                    <p style="margin: 0; font-size: var(--font-size-sm);">Best options for small amounts?</p>
+                </div>
+
+                <div class="card" style="cursor: pointer; transition: all 0.2s;"
+                    onclick="askQuestion('How can I find scholarships and grants for my education?')">
+                    <h3
+                        style="font-size: var(--font-size-base); color: var(--color-accent); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🎓</span> Scholarships
+                    </h3>
+                    <p style="margin: 0; font-size: var(--font-size-sm);">How to find scholarships?</p>
+                </div>
+
+                <div class="card" style="cursor: pointer; transition: all 0.2s;"
+                    onclick="askQuestion('What is an emergency fund and how much should I save?')">
+                    <h3
+                        style="font-size: var(--font-size-base); color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💼</span> Emergency Fund
+                    </h3>
+                    <p style="margin: 0; font-size: var(--font-size-sm);">How much should I save?</p>
+                </div>
+
+                <div class="card" style="cursor: pointer; transition: all 0.2s;"
+                    onclick="askQuestion('How can I reduce my monthly expenses effectively?')">
+                    <h3
+                        style="font-size: var(--font-size-base); color: var(--color-secondary); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>✂️</span> Cost Cutting
+                    </h3>
+                    <p style="margin: 0; font-size: var(--font-size-sm);">How to reduce expenses?</p>
+                </div>
+
+                <div class="card" style="cursor: pointer; transition: all 0.2s;"
+                    onclick="askQuestion('What financial planning tips are important for women entrepreneurs?')">
+                    <h3
+                        style="font-size: var(--font-size-base); color: var(--color-accent); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>👩‍💼</span> Entrepreneurship
+                    </h3>
+                    <p style="margin: 0; font-size: var(--font-size-sm);">Tips for women entrepreneurs?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>💰 EmpowerSave</h4>
+                    <p>AI-powered financial companion for women and students.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="ai-advisor.html">AI Advisor</a></li>
+                        <li><a href="life-simulator.html">Life Simulator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="reports.html">Reports</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerSave. All rights reserved. Built with 💙 for financial empowerment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="ai-engine.js"></script>
+</body>
+
+</html>
