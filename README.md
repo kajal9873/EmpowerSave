@@ -4,18 +4,6 @@ Empower Your Financial Future — A smart, personalized financial platform built
 
 <img width="1919" height="1134" alt="Screenshot 2026-05-23 144433" src="https://github.com/user-attachments/assets/898b411f-56ba-43d8-a8ad-80e227f5d081" />
 
-📌 Table of Contents
-
-About the Project
-Live Demo
-Features
-Pages Overview
-Tech Stack
-Project Structure
-How It Works
-License
-Contact
-
 
 📖 About the Project
 EmpowerSave is a frontend web application that acts as an AI-powered financial companion designed for women and students — two groups that often face unique financial challenges. The platform combines an intelligent chatbot advisor, a personal finance dashboard, a life event simulator, and detailed financial reports — all in one clean, responsive interface.
@@ -86,37 +74,6 @@ TechnologyPurposeHTML5Page structure and semantic markupCSS3Custom design system
 No frameworks. No build tools. No dependencies. Pure HTML/CSS/JS.
 
 
-📁 Project Structure
-EmpowerSave/
-└── kk/
-    ├── index.html           # Home / landing page
-    ├── dashboard.html       # Financial dashboard
-    ├── ai-advisor.html      # AI chatbot advisor page
-    ├── life-simulator.html  # Financial scenario simulator
-    ├── reports.html         # Monthly financial reports
-    ├── contact.html         # Contact form and info
-    ├── styles.css           # Global design system (CSS variables, components)
-    ├── app.js               # Core app logic (nav, animations, localStorage, notifications)
-    └── ai-engine.js         # AI knowledge base, intent detection, response generation
-Key JavaScript Modules
-app.js handles:
-
-Mobile navbar toggle
-Smooth scrolling
-Progress bar animations (IntersectionObserver)
-StorageHelper — localStorage wrapper with save/load/remove
-initializeUserData() — seeds default financial profile on first load
-animateNumber() — smooth count-up animations
-Toast notification system
-
-ai-engine.js handles:
-
-KnowledgeBase — structured financial knowledge across 6 domains (budgeting, savings, investing, scholarships, women's finance, student finance)
-AgenticAI class — intent analysis, response generation, and personalization using live user data
-Chat interface wiring — message rendering, typing delay simulation, suggested follow-up questions
-askQuestion() — triggered by Popular Question cards on the AI Advisor page
-
-
 🧠 How It Works
 AI Engine (RAG Simulation)
 The AgenticAI class in ai-engine.js simulates an Agentic AI + Retrieval-Augmented Generation (RAG) pipeline entirely in the browser:
@@ -130,24 +87,6 @@ Suggestions returned → 3 follow-up question suggestions are provided per inten
 
 Data Persistence
 User financial data (income, expenses, savings, goals, transactions) is stored in localStorage under the key empowersave_user. Default values are seeded on first load via initializeUserData().
-
-📄 License
-This project is licensed under the MIT License — see the LICENSE file for details.
-
-📬 Contact
-EmpowerSave Team
-
-📧 Email: support@empowersave.com
-📞 Phone: +1 (555) 123-4567
-🏢 Address: 123 Financial Street, Empowerment City, EC 12345
-
-Office Hours:
-
-Monday–Friday: 9:00 AM – 6:00 PM
-Saturday: 10:00 AM – 4:00 PM
-Sunday: Closed
-
-
 <div align="center">
 Built with 💙 for financial empowerment
 © 2026 EmpowerSave. All rights reserved.
