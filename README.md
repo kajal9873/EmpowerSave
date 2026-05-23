@@ -15,7 +15,7 @@ Beginner-friendly investing guidance with small amounts
 "What-if" financial scenario planning for major life decisions
 
 
-🌐 Live Demo : 
+🌐 Live Demo : https://kajal9873.github.io/EmpowerSave/
 
 
 ✨ Features
