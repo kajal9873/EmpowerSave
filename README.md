@@ -8,7 +8,6 @@ Empower Your Financial Future — A smart, personalized financial platform built
 
 About the Project
 Live Demo
-Screenshots
 Features
 Pages Overview
 Tech Stack
@@ -28,30 +27,8 @@ Beginner-friendly investing guidance with small amounts
 "What-if" financial scenario planning for major life decisions
 
 
-🌐 Live Demo
+🌐 Live Demo : 
 
-GitHub Repository: https://github.com/kajal9873/EmpowerSave
-
-
-📸 Screenshots
-🏠 Home Page
-<img width="1919" height="1134" alt="Screenshot 2026-05-23 144433" src="https://github.com/user-attachments/assets/0090a8c1-dcb5-4892-821d-abfd3a58754e" />
-Hero section with features overview and call-to-action
-📊 Dashboard
-<img width="1919" height="1132" alt="Screenshot 2026-05-23 144148" src="https://github.com/user-attachments/assets/6baef7f3-f407-4700-a5ba-99e3bf81cdf8" />
-Income, expense, and savings tracker with financial goals and recent transactions
-🤖 AI Financial Advisor
-<img width="1919" height="1135" alt="Screenshot 2026-05-23 144733" src="https://github.com/user-attachments/assets/a8ae9c1f-09a6-401c-a013-b1187eed45fc" />
-Conversational AI chatbot powered by an Agentic AI + RAG knowledge engine
-🔮 Life Simulator
-<img width="1919" height="1135" alt="Screenshot 2026-05-23 144804" src="https://github.com/user-attachments/assets/f2b69d5b-8cb8-471f-87f8-ab24d3d79688" />
-"What-if" financial scenario planner with projection results
-📈 Financial Reports
-<img width="1919" height="1127" alt="Screenshot 2026-05-23 144331" src="https://github.com/user-attachments/assets/65e4c01d-7be9-4442-88b0-0ed1c81de445" />
-AI-generated monthly summaries with spending breakdowns and recommendations
-📬 Contact Page
-<img width="1919" height="1127" alt="Screenshot 2026-05-23 144415" src="https://github.com/user-attachments/assets/3288586f-269a-40f2-8684-a20a55a08e17" />
-Contact form with office hours and location details
 
 ✨ Features
 🤖 AI Financial Advisor
